@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.situ.mall.dao.ProductDao">
+  
+  		<resultMap type="Product" id="findAllMap">
+  			<id property="id" column="id"/>
+  			<result property="name" column="name"/>
+  			<result property="subtitle" column="subtitle"/>
+  			<result property="main_image" column="main_image"/>
+  			<result property="sub_images" column="sub_images"/>
+  			<result property="detail" column="detail"/>
+  			<result property="price" column="price"/>
+  			<result property="stock" column="stock"/>
+  			<result property="status" column="status"/>
+  			<result property="create_time" column="create_time"/>
+  			<result property="update_time" column="update_time"/>
+  			<association property="category" javaType="Category">
+  				<result property="name" column="categoryName"/>
+  			</association>
+  		</resultMap>
+  		
+  		<select id="findAll" resultMap="findAllMap">
+  			SELECT product.id,category.name AS categoryName,product.name,subtitle,main_image,sub_images,detail,price,stock,product.status,
+            product.create_time,product.update_time FROM product INNER JOIN category ON product.category_id=category.id;
+  		</select>
+			  
+		<select id="findTwo" resultType="Category" parameterType="int">
+			SELECT * FROM category where parent_id=#{id};
+		</select>	  
+		
+		<select id="findOneCategory" resultType="Category">
+			SELECT * FROM category where parent_id=0;
+		</select>	
+		
+		<insert id="add" parameterType="Product">
+			INSERT INTO product (id,category_id,name,subtitle,main_image,detail,price,stock,status,
+           create_time,update_time) VALUES
+            (#{id},#{category.id},#{name},#{subtitle},#{main_image},
+            #{detail},#{price},#{stock},#{status},#{create_time},#{update_time});
+		</insert>
+		
+		<resultMap type="Product" id="searchProductMap">
+			<id property="id" column="id"/>
+  			<result property="name" column="name"/>
+  			<result property="subtitle" column="subtitle"/>
+  			<result property="main_image" column="main_image"/>
+  			<result property="sub_images" column="sub_images"/>
+  			<result property="detail" column="detail"/>
+  			<result property="price" column="price"/>
+  			<result property="stock" column="stock"/>
+  			<result property="status" column="status"/>
+  			<result property="create_time" column="create_time"/>
+  			<result property="update_time" column="update_time"/>
+  			<association property="category" javaType="Category">
+  				<result property="name" column="categoryName"/>
+  			</association>
+		</resultMap>
+		
+		<select id="searchProduct" parameterType="Product" resultMap="searchProductMap">
+            SELECT product.id,category.name AS categoryName,product.name,subtitle,main_image,sub_images,price,stock,product.status,
+            product.create_time,product.update_time FROM product INNER JOIN category ON product.category_id=category.id 
+			<where>
+			    <if test="id!=null and id!=''">
+			    	and product.id = #{id} 
+			    </if>
+			    <if test="category.id!=null and category.id!=''">
+					and category_id =#{category.id}
+				</if>
+				<if test="name!=null and name!=''">
+					and product.name like '%${name}%'
+				</if>
+				<if test="subtitle!=null and subtitle!=''">
+					and subtitle like '%${subtitle}%'
+				</if>
+				<if test="price!=null and price!=''">
+					and price =#{price}
+				</if>
+				<if test="stock!=null and stock!=''">
+					and stock =#{stock}
+				</if>
+				<if test="status!=null and status!=''">
+					and status =#{status}
+				</if>
+				<if test="create_time!=null and create_time!=''">
+					and product.create_time =#{create_time}
+				</if>
+				<if test="update_time!=null and update_time!=''">
+					and  product.update_time=#{update_time}
+				</if>
+			</where>
+		</select>
+		
+  </mapper>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
