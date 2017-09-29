@@ -1,20 +1,13 @@
 package com.situ.mall.controller.back;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.situ.mall.pojo.Category;
@@ -33,9 +26,6 @@ public class ProductController {
 	public String list(Model model) {
 		List<Product> list = productService.findAll();
 		model.addAttribute("list", list);
-		for (Product product : list) {
-			System.out.println(product);
-		}
 		return "product_list";
 	}
 
@@ -54,7 +44,7 @@ public class ProductController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/uploadPic")
+	/*@RequestMapping(value = "/uploadPic")
 	@ResponseBody
 	public Map<String, Object> uploadPic(MultipartFile pictureFile) {
 		// 为了防止重名生成随机的名字
@@ -71,7 +61,7 @@ public class ProductController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("fileName", fileName);
 		return map;
-	}
+	}*/
 
 	@RequestMapping(value = "/add")
 	public String add(Product product, String createTime, String updateTime,Model model) {
@@ -105,6 +95,8 @@ public class ProductController {
 	@RequestMapping(value="toCategoryList")
 	public ModelAndView toCategoryList() {
 		ModelAndView modelAndView = new ModelAndView();
+		List<Category> oneList = productService.findOneCategory();
+		modelAndView.addObject("oneList", oneList);
 		modelAndView.setViewName("product_category");
 		return modelAndView;
 	}

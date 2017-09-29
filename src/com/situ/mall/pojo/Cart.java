@@ -5,8 +5,8 @@ import java.util.Date;
 public class Cart {
 
 	private Integer id;
-	private Integer user_id;
-	private Integer product_id;
+	private User user;
+	private Product product;
 	private Integer quantity;
 	private Integer checked;
 	private Date create_time;
@@ -16,12 +16,12 @@ public class Cart {
 		super();
 	}
 
-	public Cart(Integer id, Integer user_id, Integer product_id, Integer quantity, Integer checked, Date create_time,
+	public Cart(Integer id, User user, Product product, Integer quantity, Integer checked, Date create_time,
 			Date update_time) {
 		super();
 		this.id = id;
-		this.user_id = user_id;
-		this.product_id = product_id;
+		this.user = user;
+		this.product = product;
 		this.quantity = quantity;
 		this.checked = checked;
 		this.create_time = create_time;
@@ -36,20 +36,20 @@ public class Cart {
 		this.id = id;
 	}
 
-	public Integer getUser_id() {
-		return user_id;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Integer getProduct_id() {
-		return product_id;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProduct_id(Integer product_id) {
-		this.product_id = product_id;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public Integer getQuantity() {
@@ -86,8 +86,8 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", user_id=" + user_id + ", product_id=" + product_id + ", quantity=" + quantity
-				+ ", checked=" + checked + ", create_time=" + create_time + ", update_time=" + update_time + "]";
+		return "Cart [id=" + id + ", user=" + user + ", product=" + product + ", quantity=" + quantity + ", checked="
+				+ checked + ", create_time=" + create_time + ", update_time=" + update_time + "]";
 	}
 	
 }

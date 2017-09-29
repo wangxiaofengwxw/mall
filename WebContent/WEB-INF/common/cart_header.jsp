@@ -7,12 +7,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<%@ include  file="../common/head.jsp"%>
-<script type="text/javascript">
-	function toOrder() {
-		
-	}
-</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -28,15 +22,13 @@
             </button>
             <a href="index.html" class="navbar-brand">电商管理系统</a>
         </div>
-        <!--小屏幕导航按钮和logo-->
-        <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/student/pageList.action" >
+                <li><a href="${pageContext.request.contextPath}/product/list.action" >
                 <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;商品管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/cart/list.action" ><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;购物车管理</a></li>
+                <li  class="active"><a href="${pageContext.request.contextPath}/cart/list.action" ><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;购物车管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/course/list.action" ><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;收货地址管理</a></li>
-                <li><a onclick="toOrder()"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;订单管理</a></li>
+                <li><a href="${pageContext.request.contextPath}/teacher/viewBanjiCourse.action"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;订单管理</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -55,15 +47,9 @@
                 <li><a href="${pageContext.request.contextPath}/student?method=logout"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
             </ul>
         </div>
-        <!--导航-->
-
     </div>
 </nav>
 <!--导航-->
-
-<%-- <div id="">
-	<%@include file="../back/product_list.jsp" %>
-</div> --%>
 
 </body>
 </html>

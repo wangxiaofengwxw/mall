@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.situ.mall.dao.CartDao">
+  
+  <resultMap type="Cart" id="cartMap">
+  	<id property="id" column="id"/>
+  	<result property="quantity" column="quantity"/>
+  	<result property="checked" column="checked"/>
+  	<result property="create_time" column="create_time"/>
+  	<result property="update_time" column="update_time"/>
+  	<association property="user" javaType="User">
+  		<result property="username" column="username"/>
+  	</association>
+  	<association property="product" javaType="Product">
+  		<result property="name" column="name"/>
+  	</association>
+  </resultMap>
+  
+  <select id="getList" resultMap="cartMap">
+  	SELECT c.id,u.username,p.name, c.quantity,c.checked,c.create_time,c.update_time FROM
+   cart AS c INNER JOIN `user` AS u ON c.user_id=u.id
+    INNER JOIN product AS p ON p.id=c.product_id;
+  </select>
+  
+  </mapper>

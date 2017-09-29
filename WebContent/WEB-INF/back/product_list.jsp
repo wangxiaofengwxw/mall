@@ -32,7 +32,7 @@
 </head>
 <body>
 <%@include file="../common/product_header.jsp" %>
-<%@ include  file="../common/head.jsp"%>
+<%-- <%@ include  file="../common/head.jsp"%> --%>
 
 <div class="container">
     <div class="row">
@@ -91,12 +91,17 @@
 						<td>${product.category.name }</td>
 						<td>${product.name }</td>
 						<td>${product.subtitle }</td>
-						<td><img alt="" src="/pic/${product.main_image }" width="100" height="100"></td>
+						<td><img alt="" src="${product.fullUrl}" width="100" height="100"></td>
 						<td>${product.sub_images }</td>
 						<%-- <td>${product.detail }</td> --%>
 						<td>${product.price }</td>
 						<td>${product.stock }</td>
-						<td>${product.status }</td>
+						<td>
+						    <c:if test="${product.status == 1 }">上架</c:if>
+						    <c:if test="${product.status == 2 }">下架</c:if>
+						    <c:if test="${product.status == 3 }">删除</c:if>
+							
+						</td>
 						<td>
 						<fmt:formatDate value="${product.create_time}" pattern="yyyy-MM-dd"  />
                         </td>
