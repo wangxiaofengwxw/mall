@@ -36,9 +36,9 @@
 		</select>	
 		
 		<insert id="add" parameterType="Product">
-			INSERT INTO product (id,category_id,name,subtitle,main_image,detail,price,stock,status,
+			INSERT INTO product (id,category_id,name,subtitle,main_image,sub_images,detail,price,stock,status,
            create_time,update_time) VALUES
-            (#{id},#{category.id},#{name},#{subtitle},#{main_image},
+            (#{id},#{category.id},#{name},#{subtitle},#{main_image},#{sub_images},
             #{detail},#{price},#{stock},#{status},#{create_time},#{update_time});
 		</insert>
 		

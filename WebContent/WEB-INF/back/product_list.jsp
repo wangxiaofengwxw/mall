@@ -92,7 +92,9 @@
 						<td>${product.name }</td>
 						<td>${product.subtitle }</td>
 						<td><img alt="" src="${product.fullUrl}" width="100" height="100"></td>
-						<td>${product.sub_images }</td>
+						<c:forEach items="${product.sub_images}" var="img">
+						<td><img alt="" src="img" width="100" height="100"></td>
+						</c:forEach>
 						<%-- <td>${product.detail }</td> --%>
 						<td>${product.price }</td>
 						<td>${product.stock }</td>

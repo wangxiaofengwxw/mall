@@ -26,11 +26,11 @@
         <!--导航-->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="${pageContext.request.contextPath}/student/pageList.action" >
+                <li><a href="${pageContext.request.contextPath}/product/list.action" >
                 <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;商品管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/cart/list.action" ><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;购物车管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/course/list.action" ><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;收货地址管理</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/teacher/viewBanjiCourse.action"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;订单管理</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/order/list.action"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;订单管理</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

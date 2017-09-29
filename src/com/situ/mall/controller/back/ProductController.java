@@ -67,7 +67,6 @@ public class ProductController {
 	public String add(Product product, String createTime, String updateTime,Model model) {
 		product.setCreate_time(SwitchingTime.toSwitchingTime(createTime));
 		product.setUpdate_time(SwitchingTime.toSwitchingTime(updateTime));
-		System.out.println("------------------------------------------" + product);
 		boolean isSuccess = productService.add(product);
 		return "redirect:/product/list.action";
 	}
