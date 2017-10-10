@@ -1,0 +1,258 @@
+body {
+			margin: 0;
+		}
+		
+		* {
+			font-family: "瀵邦喛钂嬮梿鍛寸拨";
+			font-size: 14px;
+		}
+		
+		.clearfix {
+			clear: both;
+		}
+		
+		input {
+			padding: 0;
+			border: none;
+			outline: none;
+		}
+		
+		p {
+			margin: 0;
+		}
+		h1,h2,h3,h4,h5,h6{
+			margin: 0;
+			padding: 0;
+		}
+				
+		ul,
+		li {
+			margin: 0;
+			padding: 0;
+			outline: none;
+		}
+		
+		li {
+			list-style: none;
+			display: inline;
+		}
+		
+		/*----------------------top---------------------------------*/
+		
+		.bg_color {
+			border-bottom: 1px solid #ccc;
+		}
+		
+		.top_center {
+			width: 1100px;
+			margin: auto;
+		}
+		
+		.top_center .wel {
+			line-height: 28px;
+			color: #808080;
+		}
+		
+		.top_center .left {
+			float: left;
+		}
+		
+		.top_center .right {
+			float: right;
+		}
+		
+		.top_center a {
+			color: #808080;
+			line-height: 28px;
+		}
+
+		.top_center li {
+			float: left;
+			margin-left: 20px;
+			margin-right: 30px;
+		}
+		
+		.top_center .login {
+			background-image: url(../img/zhanghu2.png);
+			background-repeat: no-repeat;
+			padding-left: 17px;
+			background-position: 2% center;
+		}
+		
+		.top_center .collect {
+			background-image: url(../img/xin.png);
+			background-repeat: no-repeat;
+			padding-left: 17px;
+			background-position: 2% center;
+		}
+		
+		.top_center .indent {
+			background-image: url(../img/narrow-down.png);
+			background-repeat: no-repeat;
+			padding-right: 10px;
+			background-position: right center;
+		}
+		
+		.top_center .phone {
+			background-image: url(../img/phone.png);
+			background-repeat: no-repeat;
+			padding-left: 17px;
+			background-position: 2% center;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		/*--------------------------logo------------------------------------*/
+		
+		.logo_center {
+			width: 1100px;
+			margin: auto;
+			height: 100px;
+		}
+		
+		.logo_center .left {
+			float: left;
+		}
+		
+		.logo_center .logo_img {
+			display: block;
+			margin-top: 27px;
+			margin-bottom: 27px;
+		}
+		/*鐠佸墽鐤嗘稉顓㈡？濡楀棛娈�*/
+		
+		.logo_center .center {
+			height: 74px;
+			float: left;
+			margin-top: 26px;
+			margin-left: 180px;
+		}
+		/*鐠佸墽鐤唅nput閺嶅洨顒锋稉鍝勪箯濞搭喖濮�*/
+		
+		.logo_center input {
+			float: left;
+		}
+		/*鐠佸墽鐤嗛幖婊呭偍濡楀棛娈戠�逛粙鐝敍宀冪珶濡楋拷 娴犮儱寮峰锔借癁閸旓拷*/
+		
+		.logo_center .btn1 {
+			width: 400px;
+			height: 30px;
+			border: 2px solid #f41443;
+			float: left;
+		}
+		/*鐠佸墽鐤嗛幖婊呭偍閹稿鎸抽惃鍕啍妤傛﹫绱濇０婊嗗閿涘矁鍎楅弲顖欎簰閸欏﹤涔忓ù顔煎З*/
+		
+		.logo_center .btn2 {
+			width: 100px;
+			height: 34px;
+			border: 2px solid #f41443;
+			background: #F41443;
+			float: left;
+		}
+		/*娑擃參妫挎稉瀣煙闁剧偓甯磚l濞搭喖濮╃仦鐐达拷褍鎷板☉鍫ユ珟娑撳﹪娼伴幖婊呭偍濡楀棗鎷伴幐澶愭尦閻ㄥ嫬涔忓ù顔煎З閻ㄥ嫬濂栭崫宥忕礉鐠烘繄顬囨稉濠囨桨閻ㄥ嫭鎮崇槐銏☆攱3px*/
+		
+		.logo_center .nav {
+			float: left;
+			clear: left;
+			margin-top: 3px;
+		}
+		/*娑擃參妫挎稉瀣煙闁剧偓甯磍i閻ㄥ嫬涔忓ù顔煎З閸滃矁绐涚粋璇蹭箯鏉堬拷4px*/
+		
+		.logo_center li {
+			float: left;
+			margin-left: 4px;
+		}
+		/*娑擃參妫挎稉瀣桨闁剧偓甯撮惃鍕杹閼硅尪顔曠純锟�*/
+		
+		.logo_center a {
+			color: #808080;
+		}
+		
+		.logo_center .right {
+			width: 140px;
+			height: 40px;
+			border: 1px solid #808080;
+			float: right;
+			margin-top: 29px;
+		}
+		
+		.logo_center .car {
+			float: left;
+		}
+		
+		.logo_center .car_pic {
+			line-height: 40px;
+			background-image: url(../img/car_06.png);
+			background-repeat: no-repeat;
+			padding-left: 30px;
+			float: left;
+			background-position: left center;
+		}
+		
+		.car .car_pic:hover {
+			color: #F41443;
+		}
+		
+		.narrow {
+			width: 17px;
+			float: left;
+			height: 10px;
+			background-image: url(../img/narrow.png);
+			margin-top: 15px;
+			margin-left: 5px;
+		}
+		/*----------------------------------menu------------------------------*/
+		
+		.big_menu {
+			width: 100%;
+			height: 38px;
+			background-color: #171717;
+			margin: 0;
+			border: 0;
+			padding: 0;
+		}
+		
+		.menu {
+			width: 1100px;
+			margin: 0 auto;
+			/*border: 1px solid yellow;*/
+		}
+		
+		.menu li {
+			float: left;
+		}
+		
+		.menu_ul {
+			margin: 1px;
+		}
+		
+		.menu a {
+			/*background-color: black;*/
+			color: white;
+			font-size: 16px;
+			line-height: 38px;
+			width: 140px;
+			height: 38px;
+			float: left;
+			text-align: center;
+			/*margin-left: 0;*/
+		}
+		
+		.menu .current {
+			background-color: #F41443;
+		}
+		
+		.menu a:hover {
+			background-color: #F41443;
+		}
+		
+		.address{
+			width: 300px;
+			height: 200px;
+			float: left;
+			margin-left: 20px;
+			border: 1px solid red;
+		}
+		
+		

@@ -149,10 +149,4 @@ public class Product {
 				+ price + ", stock=" + stock + ", status=" + status + ", create_time=" + create_time + ", update_time="
 				+ update_time + "]";
 	}
-
-	public List<Product> searchProduct(Product product) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 }

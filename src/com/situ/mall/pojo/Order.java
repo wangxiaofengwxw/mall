@@ -6,7 +6,7 @@ import java.util.Date;
 public class Order {
 
 	private Integer id;
-	private Integer order_no;
+	private OrderItem orderItem;
 	private User user;
 	private Shipping shipping;
 	private BigDecimal payment;
@@ -24,12 +24,12 @@ public class Order {
 		super();
 	}
 
-	public Order(Integer id, Integer order_no, User user, Shipping shipping, BigDecimal payment, Integer payment_type,
-			BigDecimal postage, Integer status, Date payment_time, Date send_time, Date end_time, Date close_time,
-			Date create_time, Date update_time) {
+	public Order(Integer id, OrderItem orderItem, User user, Shipping shipping, BigDecimal payment,
+			Integer payment_type, BigDecimal postage, Integer status, Date payment_time, Date send_time, Date end_time,
+			Date close_time, Date create_time, Date update_time) {
 		super();
 		this.id = id;
-		this.order_no = order_no;
+		this.orderItem = orderItem;
 		this.user = user;
 		this.shipping = shipping;
 		this.payment = payment;
@@ -52,12 +52,12 @@ public class Order {
 		this.id = id;
 	}
 
-	public Integer getOrder_no() {
-		return order_no;
+	public OrderItem getOrderItem() {
+		return orderItem;
 	}
 
-	public void setOrder_no(Integer order_no) {
-		this.order_no = order_no;
+	public void setOrderItem(OrderItem orderItem) {
+		this.orderItem = orderItem;
 	}
 
 	public User getUser() {
@@ -158,10 +158,10 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", order_no=" + order_no + ", user=" + user + ", shipping=" + shipping + ", payment="
-				+ payment + ", payment_type=" + payment_type + ", postage=" + postage + ", status=" + status
-				+ ", payment_time=" + payment_time + ", send_time=" + send_time + ", end_time=" + end_time
+		return "Order [id=" + id + ", orderItem=" + orderItem + ", user=" + user + ", shipping=" + shipping
+				+ ", payment=" + payment + ", payment_type=" + payment_type + ", postage=" + postage + ", status="
+				+ status + ", payment_time=" + payment_time + ", send_time=" + send_time + ", end_time=" + end_time
 				+ ", close_time=" + close_time + ", create_time=" + create_time + ", update_time=" + update_time + "]";
 	}
-	
+
 }

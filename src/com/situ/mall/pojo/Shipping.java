@@ -6,6 +6,7 @@ public class Shipping {
 
 	private Integer id;
 	private User user;
+	private String receiver_name;
 	private String receiver_phone;
 	private String receiver_mobile;
 	private String receiver_province;
@@ -20,12 +21,13 @@ public class Shipping {
 		super();
 	}
 
-	public Shipping(Integer id, User user, String receiver_phone, String receiver_mobile, String receiver_province,
-			String receiver_city, String receiver_district, String receiver_address, String receiver_zip,
-			Date create_time, Date update_time) {
+	public Shipping(Integer id, User user, String receiver_name, String receiver_phone, String receiver_mobile,
+			String receiver_province, String receiver_city, String receiver_district, String receiver_address,
+			String receiver_zip, Date create_time, Date update_time) {
 		super();
 		this.id = id;
 		this.user = user;
+		this.receiver_name = receiver_name;
 		this.receiver_phone = receiver_phone;
 		this.receiver_mobile = receiver_mobile;
 		this.receiver_province = receiver_province;
@@ -51,6 +53,14 @@ public class Shipping {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getReceiver_name() {
+		return receiver_name;
+	}
+
+	public void setReceiver_name(String receiver_name) {
+		this.receiver_name = receiver_name;
 	}
 
 	public String getReceiver_phone() {
@@ -127,11 +137,11 @@ public class Shipping {
 
 	@Override
 	public String toString() {
-		return "Shipping [id=" + id + ", user=" + user + ", receiver_phone=" + receiver_phone + ", receiver_mobile="
-				+ receiver_mobile + ", receiver_province=" + receiver_province + ", receiver_city=" + receiver_city
-				+ ", receiver_district=" + receiver_district + ", receiver_address=" + receiver_address
-				+ ", receiver_zip=" + receiver_zip + ", create_time=" + create_time + ", update_time=" + update_time
-				+ "]";
+		return "Shipping [id=" + id + ", user=" + user + ", receiver_name=" + receiver_name + ", receiver_phone="
+				+ receiver_phone + ", receiver_mobile=" + receiver_mobile + ", receiver_province=" + receiver_province
+				+ ", receiver_city=" + receiver_city + ", receiver_district=" + receiver_district
+				+ ", receiver_address=" + receiver_address + ", receiver_zip=" + receiver_zip + ", create_time="
+				+ create_time + ", update_time=" + update_time + "]";
 	}
 	
 }

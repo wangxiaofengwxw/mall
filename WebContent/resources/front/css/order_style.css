@@ -1,0 +1,287 @@
+body {
+			margin: 0;
+		}
+		
+		* {
+			font-family: "寰蒋闆呴粦";
+			font-size: 14px;
+		}
+		
+		.clearfix {
+			clear: both;
+		}
+		
+		input {
+			padding: 0;
+			border: none;
+			outline: none;
+		}
+		
+		p {
+			margin: 0;
+		}
+		h1,h2,h3,h4,h5,h6{
+			margin: 0;
+			padding: 0;
+		}
+				
+	  ul,
+		li {
+			margin: 0;
+			padding: 0;
+			outline: none;
+		} 
+		
+		 li {
+			list-style: none;
+			display: inline;
+		} 
+		
+		/*----------------------top---------------------------------*/
+		
+		.bg_color {
+			border-bottom: 1px solid #ccc;
+		}
+		
+		.top_center {
+			width: 1100px;
+			margin: auto;
+		}
+		
+		.top_center .wel {
+			line-height: 28px;
+			color: #808080;
+		}
+		
+		.top_center .left {
+			float: left;
+		}
+		
+		.top_center .right {
+			float: right;
+		}
+		
+		.top_center a {
+			color: #808080;
+			line-height: 28px;
+		}
+
+		.top_center li {
+			float: left;
+			margin-left: 20px;
+			margin-right: 30px;
+		}
+		
+		.top_center .login {
+			background-image: url(../img/zhanghu2.png);
+			background-repeat: no-repeat;
+			padding-left: 17px;
+			background-position: 2% center;
+		}
+		
+		.top_center .collect {
+			background-image: url(../img/xin.png);
+			background-repeat: no-repeat;
+			padding-left: 17px;
+			background-position: 2% center;
+		}
+		
+		.top_center .indent {
+			background-image: url(../img/narrow-down.png);
+			background-repeat: no-repeat;
+			padding-right: 10px;
+			background-position: right center;
+		}
+		
+		.top_center .phone {
+			background-image: url(../img/phone.png);
+			background-repeat: no-repeat;
+			padding-left: 17px;
+			background-position: 2% center;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		/*--------------------------logo------------------------------------*/
+		
+		.logo_center {
+			width: 1100px;
+			margin: auto;
+			height: 100px;
+		}
+		
+		.logo_center .left {
+			float: left;
+		}
+		
+		.logo_center .logo_img {
+			display: block;
+			margin-top: 27px;
+			margin-bottom: 27px;
+		}
+		/*璁剧疆涓棿妗嗙殑*/
+		
+		.logo_center .center {
+			height: 74px;
+			float: left;
+			margin-top: 26px;
+			margin-left: 180px;
+		}
+		/*璁剧疆input鏍囩涓哄乏娴姩*/
+		
+		.logo_center input {
+			float: left;
+		}
+		/*璁剧疆鎼滅储妗嗙殑瀹介珮锛岃竟妗� 浠ュ強宸︽诞鍔�*/
+		
+		.logo_center .btn1 {
+			width: 400px;
+			height: 30px;
+			border: 2px solid #f41443;
+			float: left;
+		}
+		/*璁剧疆鎼滅储鎸夐挳鐨勫楂橈紝棰滆壊锛岃儗鏅互鍙婂乏娴姩*/
+		
+		.logo_center .btn2 {
+			width: 100px;
+			height: 34px;
+			border: 2px solid #f41443;
+			background: #F41443;
+			float: left;
+		}
+		/*涓棿涓嬫柟閾炬帴ul娴姩灞炴�у拰娑堥櫎涓婇潰鎼滅储妗嗗拰鎸夐挳鐨勫乏娴姩鐨勫奖鍝嶏紝璺濈涓婇潰鐨勬悳绱㈡3px*/
+		
+		.logo_center .nav {
+			float: left;
+			clear: left;
+			margin-top: 3px;
+		}
+		/*涓棿涓嬫柟閾炬帴li鐨勫乏娴姩鍜岃窛绂诲乏杈�4px*/
+		
+		.logo_center li {
+			float: left;
+			margin-left: 4px;
+		}
+		/*涓棿涓嬮潰閾炬帴鐨勯鑹茶缃�*/
+		
+		.logo_center a {
+			color: #808080;
+		}
+		
+		.logo_center .right {
+			width: 140px;
+			height: 40px;
+			border: 1px solid #808080;
+			float: right;
+			margin-top: 29px;
+		}
+		
+		.logo_center .car {
+			float: left;
+		}
+		
+		.logo_center .car_pic {
+			line-height: 40px;
+			background-image: url(../img/car_06.png);
+			background-repeat: no-repeat;
+			padding-left: 30px;
+			float: left;
+			background-position: left center;
+		}
+		
+		.car .car_pic:hover {
+			color: #F41443;
+		}
+		
+		.narrow {
+			width: 17px;
+			float: left;
+			height: 10px;
+			background-image: url(../img/narrow.png);
+			margin-top: 15px;
+			margin-left: 5px;
+		}
+		/*----------------------------------menu------------------------------*/
+		
+		.big_menu {
+			width: 100%;
+			height: 38px;
+			background-color: #171717;
+			margin: 0;
+			border: 0;
+			padding: 0;
+		}
+		
+		.menu {
+			width: 1100px;
+			margin: 0 auto;
+			/*border: 1px solid yellow;*/
+		}
+		
+		.menu li {
+			float: left;
+		}
+		
+		.menu_ul {
+			margin: 1px;
+		}
+		
+		.menu a {
+			/*background-color: black;*/
+			color: white;
+			font-size: 16px;
+			line-height: 38px;
+			width: 140px;
+			height: 38px;
+			float: left;
+			text-align: center;
+			/*margin-left: 0;*/
+		}
+		
+		.menu .current {
+			background-color: #F41443;
+		}
+		
+		.menu a:hover {
+			background-color: #F41443;
+		}
+		
+		.order {
+			width: 1100px;
+			margin-left: 480px;
+			margin-top: 30px;
+		}
+		
+		.order_li {
+			font-size:18px;
+			margin-left: 60px;
+			margin-right: 150px;
+		}
+		
+		.order_li a{
+			color: white;
+			font-size: 18px;
+		}
+		
+		.orderli {
+			font-size:18px;
+			margin-left: 50px;
+			margin-right: 90px;
+		}
+		
+	.order_box{
+		width: 217.7px;
+		height: 150px;
+		float: left;
+		border: 1px solid black;
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		

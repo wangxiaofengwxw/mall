@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
+ <%@ include  file="../common/head.jsp"%>
 <script type="text/javascript">
 	function delStudent(id){
 		var isDel = confirm("您确定要删除吗");
@@ -32,7 +32,7 @@
 </head>
 <body>
 <%@include file="../common/product_header.jsp" %>
-<%-- <%@ include  file="../common/head.jsp"%> --%>
+ 
 
 <div class="container">
     <div class="row">
