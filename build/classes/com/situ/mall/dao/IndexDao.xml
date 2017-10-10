@@ -36,7 +36,7 @@
   
   <resultMap type="Product" id="searchProductMap">
 			<id property="id" column="id"/>
-  			<result property="name" column="name"/>
+  			<result property="name" column="productName"/>
   			<result property="subtitle" column="subtitle"/>
   			<result property="main_image" column="main_image"/>
   			<result property="sub_images" column="sub_images"/>
@@ -51,8 +51,8 @@
   			</association>
 		</resultMap>
 		
-		<select id="searchProduct" parameterType="String" resultMap="searchProductMap">
-            SELECT product.id,category.name AS categoryName,product.name,subtitle,main_image,sub_images,price,stock,product.status,
+		<select id="searchProduct" parameterType="Product" resultMap="searchProductMap">
+            SELECT product.id,category.name AS categoryName,product.name as productName,subtitle,main_image,sub_images,price,stock,product.status,
             product.create_time,product.update_time FROM product INNER JOIN category ON product.category_id=category.id 
 			<where>
 				<if test="name!=null and name!=''">

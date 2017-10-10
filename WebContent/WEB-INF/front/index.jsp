@@ -42,8 +42,8 @@
 				<img class="logo_img" src="${ctx}/resources/front/img/LOGO.png" />
 			</div> 
 			<div class="center">
-			    <form action="${ctx }/index/list.shtml">
-					<input class="btn1" type="text" />
+			    <form action="${ctx }/index/list.shtml"method="post">
+					<input name="name" class="btn1" type="text" />
 					<button class="btn2" >搜索</button>
 					<!-- <input class="btn2" type="button" value="搜索" /> -->
 				</form>

@@ -17,7 +17,7 @@ public interface IndexDao {
 
 	List<Category> findCategory();
 
-	List<Product> searchProduct(String name);
+	List<Product> searchProduct(Product pro);
 
 	List<Cart> findCart();
 

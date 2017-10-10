@@ -38,8 +38,8 @@ public class IndexServiceImpl implements IIndexService {
 	}
 
 	@Override
-	public List<Product> searchProduct(String name) {
-		return indexDao.searchProduct(name);
+	public List<Product> searchProduct(Product pro) {
+		return indexDao.searchProduct(pro);
 	}
 
 	@Override
