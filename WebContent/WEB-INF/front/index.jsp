@@ -16,7 +16,7 @@
 			<div class="top_center">
 				<div class="left">
 					<span class="wel">
-						欢迎来到靓淘！
+						<a href="">欢迎来到靓淘！</a>
 					</span>
 				</div>
 				<div class="right">
@@ -122,7 +122,7 @@
 					<c:forEach items="${list2 }" var="Category2">
 					<c:if test="${Category2.parent_id == Category1.id  }">
 						<p>
-							<a href="${ctx}/index/login.shtml">${Category2.name }</a>
+							<a href="${ctx}/index/list.shtml?id=${Category2.id}">${Category2.name }</a>
 						</p>
 					</c:if>
 					</c:forEach>

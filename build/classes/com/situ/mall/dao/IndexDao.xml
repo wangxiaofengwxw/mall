@@ -58,6 +58,9 @@
 				<if test="name!=null and name!=''">
 					and product.name like '%${name}%'
 				</if>
+				<if test="category.id!=null">
+					and category.id=#{category.id}
+				</if>
 			</where>
 		</select>
   

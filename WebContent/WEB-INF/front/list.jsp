@@ -21,7 +21,7 @@
 			<div class="top_center">
 				<div class="left">
 					<span class="wel">
-						欢迎来到靓淘！
+						<a href="${ctx }/index/toIndex.shtml">欢迎来到靓淘！</a>
 					</span>
 				</div>
 				<div class="right">
@@ -44,7 +44,7 @@
 		<!-----------------------2.logo-------------------->
 		<div class="logo_center">
 			<div class="left">
-				<img class="logo_img" src="${ctx}/resources/front/img/LOGO.png" />
+				<img  class="logo_img" src="${ctx}/resources/front/img/LOGO.png" />
 			</div> 
 			<div class="center">
 				<input class="btn1" type="text" value="洗面奶" />

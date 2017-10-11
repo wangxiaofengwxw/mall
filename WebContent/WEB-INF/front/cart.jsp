@@ -31,6 +31,12 @@
 					$("#num").val(num);
 				})
 			})
+			$(function(){
+				var num = $("#num").val();
+				var pri = $("#pri").val();
+				var subTatal = num * pri;
+				$("#total").val(subTatal);
+			})
 			function numm(obj) {
 		        var id = $(obj).val();
 			    var price = $("#price").val(); 
@@ -50,6 +56,9 @@
 			        }
 	           });
 	       }
+			function selectAll() {
+				$("input[name=selectIds]").prop("checked",$("#select").is(":checked"));
+			}
 		</script>
 	</head>
 
@@ -150,7 +159,7 @@
 			</div>
 		 <div class="car_2_bottom">
 				<div class="car_con_1">
-					<input type="checkbox" />
+					<td><input type="checkbox"name="selectIds"value="${cart.id }"></td>
 				</div>
 				<div class="car_con_2">
 					<img src="${cart.product.fullUrl}" style="width: 40px;height: 60px"/>
@@ -169,7 +178,7 @@
 								¥ 1699.00<br />
 							</del>
 						</span>
-						<span  style="color: #666666;">
+						<span id="pri"  style="color: #666666;">
 							${cart.product.price }
 						</span>
 					</li>
@@ -437,7 +446,7 @@
 		<div class="total">
 				<ul style="color: #666666;margin-top: 10px;margin-bottom: 10px;">
 					<li style="margin-left: 16px;margin-right: 8px;">
-						<input type="checkbox" />
+						<input type="checkbox"  onclick="selectAll();" id="select">
 					</li>
 					<li style="margin-left: 8px;margin-right: 265px;">全选</li>
 					<li style="margin-left: 265px;margin-right: 18px;">总金额（已免运费）：<span style="color: #F41443;">¥${price }</span></li>

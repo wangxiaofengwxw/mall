@@ -82,9 +82,13 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/list")
-	public ModelAndView searchProduct(String name) {
+	public ModelAndView searchProduct(String name,Integer id) {
+		System.out.println("++++++++++++++"+name+id);
 		Product pro = new Product();
 		pro.setName(name);
+		Category category = new Category();
+		category.setId(id);
+		pro.setCategory(category);
 		List<Product>list = indexService.searchProduct(pro);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("list", list);

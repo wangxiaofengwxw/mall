@@ -24,7 +24,7 @@ function selectTwo(obj) {
            //append_template(data, "city");
            var html = "<option>-请选择-</option>";
            for(var i=0;i<data.length;i++){
-               html +="<option value='"+data[i].parent_id+"'>"+data[i].name+"</option>";
+               html +="<option value='"+data[i].id+"'>"+data[i].name+"</option>";
            }
            $("#two").html(html);
         }
