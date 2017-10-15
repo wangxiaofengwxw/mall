@@ -320,16 +320,15 @@
 						<span class="right_txt">
 							数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量&nbsp;&nbsp;&nbsp;&nbsp;
 						</span>
-						<form style="display: inline;" action="${ctx }/index/toCart.shtml" method="post">
-						<input id="num" class="right_bottom_text" type="text" value="1" name="quantity"/>
+						<form style="display: inline;" action="${ctx }/cart/addCart.shtml" method="post">
+						<input id="num" class="right_bottom_text" type="text" value="1" name="amount"/>
 						<ul class="right_bottom_btn">
 							<li>
 								<input id="sub" class="right_bottom_substract" type="button" value="-" />
 								<input id="add" class="right_bottom_add" type="button" value="+" />
 							</li>
 						</ul>
-						<input type="hidden" value="${product.id }" name="product.id">
-						<input type="hidden" value="${product.status }" name="checked">
+						<input type="hidden" value="${product.id }" name="productId">
 						<input type="hidden" value="${isUser.id }" name="user.id">
 						 <button class="right_bottom_addCar"  >加入购物车</button>
 						</form>

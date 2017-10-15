@@ -27,7 +27,7 @@
 						</li>
 						<li><a href="register.html" target="_blank">快速注册</a></li>
 						<li><a class="collect" href="">我的收藏</a></li>
-						<li><a class="indent" href="">我的订单</a></li>
+						<li><a class="indent" href="${ctx}/order/toOrderList.shtml">我的订单</a></li>
 						<li><a class="phone" href="">手机靓淘</a></li>
 						<li><a href="">我的积分</a></li>
 						<li><a href="">我的评价</a></li>
@@ -61,7 +61,7 @@
 			</div>
 			<div class="right">
 				<div class="car">
-					<a class="car_pic" href="${ctx }/index/Cart.shtml" target="_blank">去购物车结算</a>
+					<a class="car_pic" href="${ctx }/cart/Cart.shtml" target="_blank">去购物车结算</a>
 				</div>
 				<div class="narrow"></div>
 			</div>
@@ -753,7 +753,7 @@
 				$(".circle li").removeClass("current").eq(m).addClass("current");
 				$(".banner_box .banner").hide().eq(m).show();
 			}
-			t = setInterval(changeImg,1000);
+			t = setInterval(changeImg,2000);
 			$(".banner_box").mouseenter(
 				function(){
 				clearInterval(t);

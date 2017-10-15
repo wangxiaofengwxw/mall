@@ -1,12 +1,12 @@
 package com.situ.mall.controller.front;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.situ.mall.pojo.Cart;
 import com.situ.mall.pojo.Category;
 import com.situ.mall.pojo.Order;
 import com.situ.mall.pojo.Product;
@@ -22,9 +21,6 @@ import com.situ.mall.pojo.ProductTotal;
 import com.situ.mall.pojo.Shipping;
 import com.situ.mall.pojo.User;
 import com.situ.mall.service.IIndexService;
-import com.situ.mall.util.SwitchingTime;
-import com.sun.org.apache.regexp.internal.recompile;
-import com.sun.org.glassfish.gmbal.ManagedAttribute;
 
 @Controller
 @RequestMapping(value="/index")
@@ -50,18 +46,14 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/login")
-	public ModelAndView login(User user,HttpServletRequest req) {
+	public String login(User user,HttpServletRequest req) {
 		User isUser = indexService.findUser(user);
-		ModelAndView modelAndView = new ModelAndView();
 		if(isUser == null) {
-			modelAndView.setViewName("login");
-			return modelAndView;
+						return "login";
 		}
-		modelAndView.addObject("isUser", isUser);
-		modelAndView.setViewName("index");
-		ServletContext servletContext = req.getServletContext();
-		servletContext.setAttribute("isUser", isUser);
-		return modelAndView;
+		HttpSession session = req.getSession();
+		session.setAttribute("isUser", isUser);
+		return "redirect:/index/toIndex.shtml";
 	}
 	
 	@RequestMapping(value="/toDetail")
@@ -96,27 +88,9 @@ public class IndexController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/Cart")
-	public ModelAndView toCart(HttpServletRequest req) {
-		ServletContext servletContext = req.getServletContext();
-		User user =  (User) servletContext.getAttribute("isUser");
-		int id = user.getId();
-		List<Cart>list = indexService.findCart(id);
-		double price = 0.0;
-		for (Cart cartList : list) {
-			BigDecimal j = cartList.getProduct().getPrice();
-			double p = j.doubleValue();
-			double i = p *  cartList.getQuantity();
-			price += i;
-		}
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("list", list);
-		modelAndView.addObject("price", price);
-		modelAndView.setViewName("cart");
-		return modelAndView;
-	}
 	
-	@RequestMapping(value="/toCart")
+	
+	/*@RequestMapping(value="/toCart")
 	public ModelAndView toCart(Cart cart,HttpServletRequest req) {
 		boolean isAdd = indexService.addCart(cart);
 		ServletContext servletContext = req.getServletContext();
@@ -135,7 +109,7 @@ public class IndexController {
 		modelAndView.addObject("price", price);
 		modelAndView.setViewName("cart");
 		return modelAndView;
-	}
+	}*/
 	
 	 @RequestMapping(value="/total")
 	    public @ResponseBody String requestJson(@RequestBody ProductTotal productTotal) {
@@ -160,7 +134,7 @@ public class IndexController {
 		 return modelAndView;
 	 }
 	 
-	 @RequestMapping(value="/toOrder")
+	/* @RequestMapping(value="/toOrder")
 	 public ModelAndView toOrder() {
 		 System.out.println("+++++++++++++++++++++++++++");
 		 int id = 22;
@@ -172,6 +146,6 @@ public class IndexController {
 		 modelAndView.addObject("list", list);
 		 modelAndView.setViewName("order");
 		 return modelAndView;
-	 }
+	 }*/
 	 
 }

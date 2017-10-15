@@ -5,6 +5,7 @@ import java.util.List;
 import com.situ.mall.pojo.Cart;
 import com.situ.mall.pojo.Category;
 import com.situ.mall.pojo.Order;
+import com.situ.mall.pojo.OrderItem;
 import com.situ.mall.pojo.Product;
 import com.situ.mall.pojo.Shipping;
 import com.situ.mall.pojo.User;
@@ -27,6 +28,10 @@ public interface IndexDao {
 
 	List<Shipping> findShipping(Integer userId);
 
-	List<Order> findOrder(int id);
+	List<OrderItem> findOrder(int id);
+
+	void addOrderItem(OrderItem orderItem);
+
+	void addOrder(Order order);
 
 }

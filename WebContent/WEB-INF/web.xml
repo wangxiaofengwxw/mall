@@ -77,4 +77,13 @@
        <url-pattern>*.shtml</url-pattern>
     </servlet-mapping>
  
+ 	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.situ.mall.filter.LoginFilter</filter-class>
+    </filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/order/toPayment.shtml</url-pattern>
+	</filter-mapping>
+ 
 </web-app>

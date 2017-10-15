@@ -11,6 +11,7 @@ import com.situ.mall.dao.IndexDao;
 import com.situ.mall.pojo.Cart;
 import com.situ.mall.pojo.Category;
 import com.situ.mall.pojo.Order;
+import com.situ.mall.pojo.OrderItem;
 import com.situ.mall.pojo.Product;
 import com.situ.mall.pojo.Shipping;
 import com.situ.mall.pojo.User;
@@ -62,7 +63,17 @@ public class IndexServiceImpl implements IIndexService {
 	}
 
 	@Override
-	public List<Order> findOrder(int id) {
+	public List<OrderItem> findOrder(int id) {
 		return indexDao.findOrder(id);
+	}
+
+	@Override
+	public void addOrderItem(OrderItem orderItem) {
+		indexDao.addOrderItem(orderItem);
+	}
+
+	@Override
+	public void addOrder(Order order) {
+		indexDao.addOrder(order);
 	}
 }

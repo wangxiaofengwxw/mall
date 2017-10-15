@@ -110,40 +110,58 @@
 			</div>
 		</div>
 		
-		<div style="width: 1100px;border: 1px solid black;  margin-left: 480px;margin-top: 30px">
-		<p>选择收货地址：</p>
-		<c:forEach items="${list }" var="Shipping">
-			<div style="width: 300px;
-			height: 200px;
-			float: left;
-			margin-left: 20px;
-			border: 1px solid red;">
-			   <p>
-			   ${Shipping.receiver_province}
-			   ${Shipping.receiver_city}
-			   ${Shipping.receiver_district}
-			   ${Shipping.receiver_address}
-			   ${Shipping.receiver_zip}
-			  </p>
-			  <p>姓名：${isUser.username}</p>
-			  <p>固定电话：${Shipping.receiver_phone}</p>
-			  <p>移动电话：${Shipping.receiver_mobile}</p>
+		<form action="${ctx}/order/addOrder.shtml"method="post">
+			<div style="width: 1100px;border: 1px solid black;  margin-left: 480px;margin-top: 30px">
+				<p>选择收货地址：</p>
+				<c:forEach items="${list }" var="Shipping">
+					
+					<div style="width: 300px;
+					height: 200px;
+					float: left;
+					margin-left: 20px;
+					border: 1px solid red;">
+					   <input type="checkbox" name="shippingId" value="${Shipping.id }">
+					   <p>
+					   ${Shipping.receiver_province}
+					   ${Shipping.receiver_city}
+					   ${Shipping.receiver_district}
+					   ${Shipping.receiver_address}
+					   ${Shipping.receiver_zip}
+					  </p>
+					  <p>姓名：${isUser.username}</p>
+					  <p>固定电话：${Shipping.receiver_phone}</p>
+					  <p>移动电话：${Shipping.receiver_mobile}</p>
+					</div>
+				</c:forEach>	
+				<div class="clearfix"></div>
+				<div style="margin-top: 50px;height: 100px;border: 1px solid black;">
+					<p>选择付款方式:</p>
+					在线支付<input type="checkbox" value="1"name="payment_type">
+					网上支付<input type="checkbox" value="2"name="payment_type">
+					<div>
+						<p>运费：10</p>
+						<input type="hidden"name="postage"value="10">
+					</div>
+				
+				</div>
+				
+				<c:forEach items="${buyCartVO.items }" var="CartItemVO">	
+					<div>
+						<img src="${CartItemVO.product.fullUrl}" style="width: 40px;height: 60px"/>
+						${CartItemVO.product.subtitle}         
+						${CartItemVO.product.price}
+						${CartItemVO.amount}
+						${CartItemVO.product.price * CartItemVO.amount }
+					</div>
+				</c:forEach>
+				
+				<div>
+					<p style="color: red">总价：${buyCartVO.totalPrice }</p>
+					<input type="hidden" value="${isUser.id }" name="userId">
+					<button style="margin-left: 900px">提交订单</button>
+				</div>
 			</div>
-		</c:forEach>	
-		<div class="clearfix"></div>
-		<div style="margin-top: 50px;height: 100px;border: 1px solid black;">
-			<p>选择付款方式:</p>
-			<p>    1:</p>
-			<p>    2:</p>
-			<p>    3:</p>
-		</div>
-		
-		<div>
-			<p>总价：${tatolPrice }</p>
-			<button style="margin-left: 900px">提交订单</button>
-		</div>
-		
-		<div>
+		</form>
 			
 	</body>
 </html>		

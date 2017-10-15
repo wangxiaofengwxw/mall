@@ -94,31 +94,39 @@
   		SELECT * FROM shipping WHERE user_id=#{id};
   	</select>
   
-  <resultMap type="Order" id="findOrderMap">
-  	<id property="id" column="oId"/>
-  	<result property="status" column="status"/>
-  		<association property="orderItem" javaType="OrderItem">
-  			<result property="order_no" column="oiNo"/>
-  			<result property="product_id" column="product_id"/>
-  			<result property="product_name" column="product_name"/>
-  			<result property="product_image" column="product_image"/>
-  			<result property="current_unit_price" column="current_unit_price"/>
-  			<result property="quantity" column="quantity"/>
-  			<result property="total_price" column="total_price"/>
-  			<result property="create_time" column="createTime"/>
-  		</association>
-  		<association property="shipping" javaType="Shipping">
-  			<result property="receiver_name" column="receiver_name"/>
-  		</association>
+  <resultMap type="OrderItem" id="findOrderMap">
+	    <result property="id" column="itemId"/>
+		<result property="order_no" column="oiNo"/>
+		<result property="product_id" column="product_id"/>
+		<result property="product_name" column="product_name"/>
+		<result property="product_image" column="product_image"/>
+		<result property="current_unit_price" column="current_unit_price"/>
+		<result property="quantity" column="quantity"/>
+		<result property="total_price" column="total_price"/>
+		<result property="create_time" column="createTime"/>
   </resultMap>
   
   <select id="findOrder" parameterType="int" resultMap="findOrderMap">
-  	SELECT o.id AS oId,oI.order_no AS oiNo,o.status,s.receiver_name,oi.product_id,oi.product_name,
+  	SELECT o.id AS oId,oi.id as itemId,oi.order_no AS oiNo,o.status,s.receiver_name,oi.product_id,oi.product_name,
     oi.product_image,oi.current_unit_price,oi.quantity,oi.total_price,oi.create_time 
     AS createTime FROM `order` AS o INNER JOIN order_item AS oi 
     ON o.order_no=oi.order_no AND o.user_id=oi.user_id 
     INNER JOIN shipping AS s ON o.shipping_id=s.id
     WHERE o.user_id = #{id};
   </select>
+  
+  <insert id="addOrderItem" parameterType="OrderItem">
+  	INSERT INTO order_item (user_id,order_no,product_id,product_name,
+    product_image,current_unit_price,quantity,total_price,
+    create_time,update_time)VALUES(#{user.id},#{order_no},#{product_id},
+    #{product_name},#{product_image},#{current_unit_price},#{quantity},#{total_price},now(),now());
+  </insert>
+  
+  <insert id="addOrder" parameterType="Order">
+  	INSERT INTO `order`( order_no, user_id, shipping_id,payment,
+	payment_type,  postage,`status`,  payment_time,  send_time,  end_time,
+	close_time,  create_time,  update_time)VALUES(#{orderItem.order_no},
+	#{user.id},#{shipping.id},#{payment},#{payment_type},#{postage},#{status},now(),now(),now(),now(),now(),now());
+  </insert>
   
   </mapper>

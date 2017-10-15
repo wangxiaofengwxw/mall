@@ -19,4 +19,6 @@ public interface IProductService {
 
 	List<Product> searchProduct(Product product);
 
+	Product findById(Integer id);
+
 }

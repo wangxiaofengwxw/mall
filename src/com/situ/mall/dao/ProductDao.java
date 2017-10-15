@@ -18,4 +18,6 @@ public interface ProductDao {
 	List<Category> findTwo(int oneId);
 
 	List<Product> searchProduct(Product product);
+
+	Product findById(Integer id);
 }

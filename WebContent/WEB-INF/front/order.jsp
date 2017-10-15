@@ -128,31 +128,31 @@
 					<li class="orderli">订单状态</li>
 					<li class="orderli">订单操作</li>
 				</ul>
-				<c:forEach items="${list }" var="order">
+				<c:forEach items="${list }" var="orderItem">
 					<div class="order_box">
-						<p>订单号：${order.orderItem.order_no }</p>
-						<img alt="" src="${order.orderItem.product_image }" style="width: 60;height: 75px">
-						<p>${order.orderItem.product_name }</p>
+						<p>订单号：${orderItem.order_no }</p>
+						<img alt="" src="${orderItem.product_image }" style="width: 60;height: 75px">
+						<p>${orderItem.product_name }</p>
 					</div>
 					<div class="order_box">
-						<p>数量：${order.orderItem.quantity }</p>
-						<p>单价：${order.orderItem.current_unit_price }</p>
-						<p>总额：${order.orderItem.total_price }</p>
+						<p>数量：${orderItem.quantity }</p>
+						<p>单价：${orderItem.current_unit_price }</p>
+						<p>总额：${orderItem.total_price }</p>
 					</div>
 					<div class="order_box">
-						<p><fmt:formatDate value="${order.orderItem.create_time }" pattern="yyyy-MM-dd hh:mm:ss"  /></p>
+						<p><fmt:formatDate value="${orderItem.create_time }" pattern="yyyy-MM-dd hh:mm:ss"  /></p>
 					</div>
 					<div class="order_box">
-						<c:if test="${order.status == 0 }">已取消</c:if>
+						<%-- <c:if test="${order.status == 0 }">已取消</c:if>
 						<c:if test="${order.status == 10 }">未付款</c:if>
 						<c:if test="${order.status == 20 }">已付款</c:if>
 						<c:if test="${order.status == 40}">已发货</c:if>
 						<c:if test="${order.status == 50 }">交易成功</c:if>
-						<c:if test="${order.status == 60 }">交易关闭</c:if>
+						<c:if test="${order.status == 60 }">交易关闭</c:if> --%>
 						<!-- 订单状态:0-已取消-10-未付款，20-已付款，40-已发货，50-交易成功，60-交易关闭', -->
 					</div>
 					<div class="order_box">
-						<button>查看</button>
+						<button>订单详情</button>
 						<button>取消订单</button>
 						<button>退款</button>
 					</div>
