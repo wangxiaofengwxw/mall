@@ -8,5 +8,7 @@
 <script type="text/javascript">  
      var ctx="${pageContext.request.contextPath}";  
 </script>
-<script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/js/jquery-1.11.1.js"></script>
-<script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/js/jquery-form.js"></script>
+ <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/js/jquery-1.11.1.js"></script>
+<%-- <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/js/jquery-form.js"></script> --%>
+<%-- <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/js/jquery-3.2.1.js"></script> --%>
+<script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/layer/layer.js"></script>

@@ -8,7 +8,92 @@
 		<title>靓淘网</title>
 		<%@include file="../common/head2.jsp" %>
 		<link rel="stylesheet" href="${ctx}/resources/front/css/index_style.css" />
+		<link rel="stylesheet" href="${ctx}/resources/front/css/getLoginPage_style.css" />
+		<script type="text/javascript">
+			function login() {
+					layer.open({
+						type:2,//（iframe层）
+						title:'用户登录',
+						area: ['500px', '400px'],
+						offset: '200px',//只定义top坐标，水平保持居中
+						content:"${ctx}/index/getLoginPage.shtml"//这里只是写的一个跳转到JSP页面的方法
+				})
+			}
+			function login1(){
+				layer.open({
+					type:1,//（iframe层）
+					title:'用户登录',
+					area: ['500px', '400px'],
+					offset: '200px',//只定义top坐标，水平保持居中
+					content:$('#login')
+				});
+			}
+			
+			function submitForm() {
+				var options = {
+						url:"${ctx}/index/login.shtml",
+						type:"post",
+						dataType:"json",
+						data:$("#login_form").serialize(),
+						success:function(data){
+							if(data.status == 0) {
+								parent.layer.msg(data.msg);
+								//当你在iframe页面关闭自身时
+								var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+								setTimeout(function(){
+									parent.layer.close(index); //再执行关闭  
+									window.parent.location.reload();//刷新父页面
+								},1000);
+							} else {
+								layer.msg(data.msg);
+							} 
+						}
+				};
+				$.ajax(options);
+			}
+		</script>
+		<style type="text/css">
+			.hidden_login{
+				width:500px;
+				height:400px;
+				display:none;
+			}
+		</style>
 	</head>
+<!-- 登录页面 -->
+<div class="hidden_login" id="login">
+			<div class="login">
+					<form id="login_form" method="post">
+						<ul>
+							<li class="login_title_1">
+								<a href="">密码登录</a>
+
+							</li>
+							<li class="login_title_2">
+								<a href="">扫码登录</a>
+							</li>
+							<li>
+								<input name="username" class="login_user" type="text" placeholder="会员名/邮箱/手机号" />
+								<input name="password" class="login_password" type="password" placeholder="密码" />
+								<!-- <input class="login_btn" type="button" value="登录" /> -->
+								<button onclick="submitForm()" class="login_btn"type="button">登录</button>
+							</li>
+							<li class="login_select">
+								<a class="weibo" href="">微博登录</a>
+								<a class="zhifubao" href="">支付宝登录</a><br />
+							</li>
+							<li class="renmenber_user">
+								<input type="checkbox" value="remer_user" id="remer_user" />
+								<label for="remer_user">记住用户名</label>
+							</li>
+							<li class="login_bottom">
+								<a href="">忘记密码</a>
+								<a href="">免费注册</a>
+							</li>
+						</ul>
+					</form>
+				</div>
+		</div>
 
 	<body>
 		<!-----------------------1.top-------------------->
@@ -22,7 +107,7 @@
 				<div class="right">
 					<ul>
 						<li>
-						<c:if test="${isUser == null}"><a  class="login" href="${ctx}/index/login.shtml" target="_blank" >请登录</a></c:if>
+						<c:if test="${isUser == null}"><a  class="login" href="javascript:login1()" target="_blank" >请登录</a></c:if>
 						<c:if test="${isUser != null}">${isUser.username }</c:if>
 						</li>
 						<li><a href="register.html" target="_blank">快速注册</a></li>

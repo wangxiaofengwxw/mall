@@ -71,7 +71,7 @@
 		<div class="list">
 		<c:forEach items="${list}" var="product">
 			<div class="product">
-				<img onclick="toDetail(${product.id})" alt="" src="${product.fullUrl }" style="width: 148ps;height: 300px">
+				<img onclick="toDetail(${product.id})" alt="" src="${product.fullUrl }" style="width: 148px;height: 300px">
 				<p>${product.name }</p>
 				<p style="color: red">${product.price }</p>
 			</div>

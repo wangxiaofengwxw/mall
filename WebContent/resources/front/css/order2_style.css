@@ -3,7 +3,7 @@ body {
 		}
 		
 		* {
-			font-family: "寰蒋闆呴粦";
+			font-family: "瀵邦喛钂嬮梿鍛寸拨";
 			font-size: 14px;
 		}
 		
@@ -120,7 +120,7 @@ body {
 			margin-top: 27px;
 			margin-bottom: 27px;
 		}
-		/*璁剧疆涓棿妗嗙殑*/
+		/*鐠佸墽鐤嗘稉顓㈡？濡楀棛娈�*/
 		
 		.logo_center .center {
 			height: 74px;
@@ -128,12 +128,12 @@ body {
 			margin-top: 26px;
 			margin-left: 180px;
 		}
-		/*璁剧疆input鏍囩涓哄乏娴姩*/
+		/*鐠佸墽鐤唅nput閺嶅洨顒锋稉鍝勪箯濞搭喖濮�*/
 		
 		.logo_center input {
 			float: left;
 		}
-		/*璁剧疆鎼滅储妗嗙殑瀹介珮锛岃竟妗� 浠ュ強宸︽诞鍔�*/
+		/*鐠佸墽鐤嗛幖婊呭偍濡楀棛娈戠�逛粙鐝敍宀冪珶濡楋拷 娴犮儱寮峰锔借癁閸旓拷*/
 		
 		.logo_center .btn1 {
 			width: 400px;
@@ -141,7 +141,7 @@ body {
 			border: 2px solid #f41443;
 			float: left;
 		}
-		/*璁剧疆鎼滅储鎸夐挳鐨勫楂橈紝棰滆壊锛岃儗鏅互鍙婂乏娴姩*/
+		/*鐠佸墽鐤嗛幖婊呭偍閹稿鎸抽惃鍕啍妤傛﹫绱濇０婊嗗閿涘矁鍎楅弲顖欎簰閸欏﹤涔忓ù顔煎З*/
 		
 		.logo_center .btn2 {
 			width: 100px;
@@ -150,20 +150,20 @@ body {
 			background: #F41443;
 			float: left;
 		}
-		/*涓棿涓嬫柟閾炬帴ul娴姩灞炴�у拰娑堥櫎涓婇潰鎼滅储妗嗗拰鎸夐挳鐨勫乏娴姩鐨勫奖鍝嶏紝璺濈涓婇潰鐨勬悳绱㈡3px*/
+		/*娑擃參妫挎稉瀣煙闁剧偓甯磚l濞搭喖濮╃仦鐐达拷褍鎷板☉鍫ユ珟娑撳﹪娼伴幖婊呭偍濡楀棗鎷伴幐澶愭尦閻ㄥ嫬涔忓ù顔煎З閻ㄥ嫬濂栭崫宥忕礉鐠烘繄顬囨稉濠囨桨閻ㄥ嫭鎮崇槐銏☆攱3px*/
 		
 		.logo_center .nav {
 			float: left;
 			clear: left;
 			margin-top: 3px;
 		}
-		/*涓棿涓嬫柟閾炬帴li鐨勫乏娴姩鍜岃窛绂诲乏杈�4px*/
+		/*娑擃參妫挎稉瀣煙闁剧偓甯磍i閻ㄥ嫬涔忓ù顔煎З閸滃矁绐涚粋璇蹭箯鏉堬拷4px*/
 		
 		.logo_center li {
 			float: left;
 			margin-left: 4px;
 		}
-		/*涓棿涓嬮潰閾炬帴鐨勯鑹茶缃�*/
+		/*娑擃參妫挎稉瀣桨闁剧偓甯撮惃鍕杹閼硅尪顔曠純锟�*/
 		
 		.logo_center a {
 			color: #808080;
@@ -255,8 +255,6 @@ body {
 		
 		.order_li {
 			font-size:18px;
-			height:41px;
-			line-height:41px;
 			margin-left: 60px;
 			margin-right: 150px;
 		}
@@ -266,51 +264,23 @@ body {
 			font-size: 18px;
 		}
 		
-		.order_list {
-			margin-top: 30px;
-			width: 1100px;
-			border:1px solid #808080;
+		.order_list{
+			margin-top: 20px;
+			border: 1px solid #808080;  
 		}
 		
-		.box1 {
-			width: 1100px;
-			height:25px;
-			border-bottom: 1px solid #808080;
+		.oBox1{
+			width:250px;
+			height:150px;
+			margin-top: -154px;
+			margin-left: 410px;
 		}
 		
-		.box2 {
-			width: 1100PX;
-		}
-		
-		.box2_1 {
-			float:left;
-			width: 300px;
-			border-right: 1px solid #808080;
-		}
-		
-		.box_order {
-			width: 300px;
-			height: 120px;
-		}
-		
-		.box2_2 {
-			margin-left:40px;
-			margin-top:48px;
-			float: left;
-			width: 230px;
-		}
-		
-		.box2_3 {
-			margin-top:48px;
-			float: left;
-			width: 230px;
-		}
-		
-		.box2_4 {
-			margin-top:48px;
-			float: left;
-			width: 250px;
-		    margin-left: 20px;
+		.oBox2{
+			width:250px;
+			height:150px;
+			margin-top: -152px;
+			margin-left: 660px;
 		}
 		
 		

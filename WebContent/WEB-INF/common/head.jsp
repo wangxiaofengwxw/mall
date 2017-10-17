@@ -12,3 +12,4 @@
 <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/js/jquery-1.11.1.js"></script>
 <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/js/jquery-form.js"></script>
 <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/bootstrap/js/bootstrap.js" ></script>
+<script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/layer/layer.js"></script>

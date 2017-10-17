@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ include  file="../common/head.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-<%@ include  file="../common/head.jsp"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/thirdlib/kindeditor/themes/default/default.css" />
 <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/kindeditor/kindeditor-all-min.js" ></script>
 <script type="text/javascript"src="${pageContext.request.contextPath}/resources/thirdlib/kindeditor/lang/zh_CN.js" ></script>
@@ -43,6 +43,36 @@ function uploadPic() {
     };
      $("#form-add").ajaxSubmit(options);
  }
+function submitForm() {
+	var options = {
+		url:"${ctx}/product/add.action",
+		type:"post",
+		dataType:"json",
+		data:$("#form-add").serialize(),
+		success:function(data){
+			/* if(data.status==0) {
+				alert(data.msg);
+			} else {
+				alert(data.msg);
+			} */
+			if(data.status==0){
+        		layer.confirm(
+       				'添加成功',
+       				{btn:['关闭','跳转到列表界面']},
+       				function(index){
+       					layer.close(index);
+       				},
+       				function(){
+       					window.location.href = "${ctx}/product/list.action";
+       				}
+       			);
+        	} else{
+        		layer.msg("添加失败");
+        	}
+		}
+	}
+	$.ajax(options)
+}
 </script>
 </head>
 <body>
@@ -75,7 +105,7 @@ function uploadPic() {
             </ul>
                 
                   <!-- 商品添加表单  begin -->
-		            <form id="form-add" action="${pageContext.request.contextPath}/product/add.action"enctype="multipart/form-data"  method="post" class="form_border">
+		            <form id="form-add" enctype="multipart/form-data"  method="post" class="form_border">
 		        <div class="form-group">
 	                        <label>商品id</label>
 	                        <input type="text" name="id" class="form-control" placeholder="id自增">
@@ -147,7 +177,7 @@ function uploadPic() {
                        <input type="text" name=updateTime class="form-control" placeholder="请输入更新时间">
                    </div>  
                    
-                   <input class="btn btn-success btn-lg" type="submit" value="添加"  />
+                   <input class="btn btn-success btn-lg" type="submit" onclick="submitForm()"value="添加"  />
               	</form>
             <!-- 商品添加表单  end -->
           

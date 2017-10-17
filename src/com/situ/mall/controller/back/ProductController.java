@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.situ.mall.common.ServerResponse;
 import com.situ.mall.pojo.Category;
 import com.situ.mall.pojo.Product;
 import com.situ.mall.service.IProductService;
@@ -47,11 +48,11 @@ public class ProductController {
 	/*@RequestMapping(value = "/uploadPic")
 	@ResponseBody
 	public Map<String, Object> uploadPic(MultipartFile pictureFile) {
-		// ÎªÁË·ÀÖ¹ÖØÃûÉú³ÉËæ»úµÄÃû×Ö
+		// Îªï¿½Ë·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String name = UUID.randomUUID().toString().replace("-", "");
 		// jpg,png
 		String ext = FilenameUtils.getExtension(pictureFile.getOriginalFilename());
-		String fileName = name + "." + ext;// Êý¾Ý¿âÀïÃæ
+		String fileName = name + "." + ext;// ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
 		String filePath = "E:\\pic\\" + fileName;
 		try {
 			pictureFile.transferTo(new File(filePath));
@@ -64,11 +65,13 @@ public class ProductController {
 	}*/
 
 	@RequestMapping(value = "/add")
-	public String add(Product product, String createTime, String updateTime,Model model) {
+	@ResponseBody
+	public ServerResponse  add(Product product, String createTime, String updateTime,Model model) {
+		System.out.println(createTime);
+		System.out.println(updateTime);
 		product.setCreate_time(SwitchingTime.toSwitchingTime(createTime));
 		product.setUpdate_time(SwitchingTime.toSwitchingTime(updateTime));
-		boolean isSuccess = productService.add(product);
-		return "redirect:/product/list.action";
+		return productService.add(product);
 	}
 	
 	@RequestMapping(value="/toSearchProduct")

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.situ.mall.common.ServerResponse;
 import com.situ.mall.pojo.Category;
 import com.situ.mall.pojo.Order;
 import com.situ.mall.pojo.Product;
@@ -40,20 +41,26 @@ public class IndexController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/getLoginPage")
+	public String getLoginPage() {
+		return "getLoginPage";
+	}
+	
 	@RequestMapping(value="/toLogin")
 	public String toLogin() {
 		return "login";
 	}
 	
 	@RequestMapping(value="/login")
-	public String login(User user,HttpServletRequest req) {
+	@ResponseBody
+	public ServerResponse  login(User user,HttpServletRequest req) {
 		User isUser = indexService.findUser(user);
 		if(isUser == null) {
-						return "login";
+						return ServerResponse.createError("登录失败");
 		}
 		HttpSession session = req.getSession();
 		session.setAttribute("isUser", isUser);
-		return "redirect:/index/toIndex.shtml";
+		return ServerResponse.createSuccess("登录成功");
 	}
 	
 	@RequestMapping(value="/toDetail")

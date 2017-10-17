@@ -1,24 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-		<%@include file="../common/head2.jsp" %>
 <!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
 		<title>靓淘网</title>
-		<link rel="stylesheet" href="${ctx}/resources/front/css/order_style.css" />
-		<script type="text/javascript">
-		function info(order_no) {
-			layer.open({
-				type:2,//（iframe层）
-				title:'订单详情',
-				area: ['600px', '400px'],
-				offset: '200px',//只定义top坐标，水平保持居中
-				content:"${ctx}/order/getOrderInfo.shtml?order_no="+order_no,//这里只是写的一个跳转到JSP页面的方法
-		    })
-		}
-		</script>
+		<%@include file="../common/head2.jsp" %>
+		<link rel="stylesheet" href="${ctx}/resources/front/css/order2_style.css" />
 	</head>
 
 	<body>
@@ -123,64 +112,62 @@
 		
 		<div class="order">
 			<div style="width: 1100px;height: 41px;background-color: #F41443 ">
-				<ul style="border: 1px solid #808080;height: 40px;">
+				<ul style="border: 1px solid black;height: 40px;">
 					<li class="order_li"><a>全部订单</a></li>
 					<li class="order_li"><a>待付款</a></li>
 					<li class="order_li"><a>已付款</a></li>
 					<li class="order_li"><a>待收货</a></li>
 				</ul>
 		   </div>
-		   <c:forEach items="${orderList}" var="order">
-			   <div class="order_list">
-			   		<div class="box1">
-			   			<p style="color: #F41443">订单号：${order.orderItem.order_no }</p>
-			   		</div>
-			   		<div class="box2">
-			   			<div class="box2_1">
-			   				<c:forEach items="${itemList }" var="orderItem">
-							    <c:if test="${order.orderItem.order_no == orderItem.order_no }">
-							    	<div class="box_order">
-							    		<div style="margin-top: 10px;float: left;">
-							    			<img alt="" src="${orderItem.product_image }" style="width: 60;height: 75px">
-							    		</div>
-							    		<div style="float: left: ;">
-							    			<p style="padding-top: 10px">${orderItem.product_name }</p>
-											<p>数量：${orderItem.quantity }</p>
-											<p>单价：${orderItem.current_unit_price }</p>
-											<p>总额：${orderItem.total_price }</p>
-							    		</div>
-							    	</div>
-							    </c:if>
-						    </c:forEach>
-			   			</div>
-			   			<!-- <ul class="ord_ul">
-			   				<li>123</li>
-			   				<li>123</li>
-			   				<li>123</li>
-			   			</ul> -->
-			   			 <div class="box2_2">
-			   				<p>
-								<c:if test="${order.status == 0 }">已取消</c:if>
-								<c:if test="${order.status == 10 }">未付款</c:if>
-								<c:if test="${order.status == 20 }">已付款</c:if>
-								<c:if test="${order.status == 40}">已发货</c:if>
-								<c:if test="${order.status == 50 }">交易成功</c:if>
-								<c:if test="${order.status == 60 }">交易关闭</c:if> 
-								<!-- 订单状态:0-已取消-10-未付款，20-已付款，40-已发货，50-交易成功，60-交易关闭', -->
-							</p>
-			   			</div>
-			   			<div class="box2_3">
-			   				<p>收货人：${order.shipping.receiver_name }</p>
-			   			</div>
-			   			<div class="box2_4">
-			   				<button onclick="info(${order.orderItem.order_no })">查看详情</button>
-			   				<button>取消订单</button>
-			   				<button>物流信息</button>
-			   			</div>
-			   			<div class="clearfix"></div> 
-			   		</div>
-			   </div>
-		  </c:forEach>
+		
+		<c:forEach items="${orderList}" var="order">
+			<div class="order_list">
+				<p>订单号：${order.orderItem.order_no}</p>
+				<div style="border: 1px solid #808080;width: 400px">
+				    <c:forEach items="${itemList }" var="orderItem">
+						<c:if test="${order.orderItem.order_no == orderItem.order_no }">
+							<img alt="" src="${orderItem.product_image }" style="width: 60;height: 75px">
+							<p>${orderItem.product_name }</p>
+							<p>数量：${orderItem.quantity }</p>
+							<p>单价：${orderItem.current_unit_price }</p>
+							<p>总额：${orderItem.total_price }</p>
+						</c:if>	
+				    </c:forEach>
+				</div>
+				
+				<div class="oBox1">
+					<p>
+						<c:if test="${order.status == 0 }">已取消</c:if>
+						<c:if test="${order.status == 10 }">未付款</c:if>
+						<c:if test="${order.status == 20 }">已付款</c:if>
+						<c:if test="${order.status == 40}">已发货</c:if>
+						<c:if test="${order.status == 50 }">交易成功</c:if>
+						<c:if test="${order.status == 60 }">交易关闭</c:if> 
+						<!-- 订单状态:0-已取消-10-未付款，20-已付款，40-已发货，50-交易成功，60-交易关闭', -->
+					</p>
+				</div>
+				<div class="oBox2">
+					<p>${order.shipping.receiver_name }</p>
+				</div>
+			</div>
+		</c:forEach>
+		
+		
+		
+					<!-- <li class="orderli">订单信息</li>
+					<li class="orderli">订单详情</li>
+					<li class="orderli">订单时间</li>
+					<li class="orderli">订单状态</li>
+					<li class="orderli">订单操作</li> -->
+				
+						<%-- <c:if test="${order.status == 0 }">已取消</c:if>
+						<c:if test="${order.status == 10 }">未付款</c:if>
+						<c:if test="${order.status == 20 }">已付款</c:if>
+						<c:if test="${order.status == 40}">已发货</c:if>
+						<c:if test="${order.status == 50 }">交易成功</c:if>
+						<c:if test="${order.status == 60 }">交易关闭</c:if> --%>
+						<!-- 订单状态:0-已取消-10-未付款，20-已付款，40-已发货，50-交易成功，60-交易关闭', -->
+					
 		
 	</div>
 </body>

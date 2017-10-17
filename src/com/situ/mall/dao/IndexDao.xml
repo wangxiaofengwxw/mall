@@ -94,7 +94,7 @@
   		SELECT * FROM shipping WHERE user_id=#{id};
   	</select>
   
-  <resultMap type="OrderItem" id="findOrderMap">
+  <resultMap type="OrderItem" id="findOrderItemMap">
 	    <result property="id" column="itemId"/>
 		<result property="order_no" column="oiNo"/>
 		<result property="product_id" column="product_id"/>
@@ -106,7 +106,7 @@
 		<result property="create_time" column="createTime"/>
   </resultMap>
   
-  <select id="findOrder" parameterType="int" resultMap="findOrderMap">
+  <select id="findOrderItem" parameterType="int" resultMap="findOrderItemMap">
   	SELECT o.id AS oId,oi.id as itemId,oi.order_no AS oiNo,o.status,s.receiver_name,oi.product_id,oi.product_name,
     oi.product_image,oi.current_unit_price,oi.quantity,oi.total_price,oi.create_time 
     AS createTime FROM `order` AS o INNER JOIN order_item AS oi 
@@ -128,5 +128,23 @@
 	close_time,  create_time,  update_time)VALUES(#{orderItem.order_no},
 	#{user.id},#{shipping.id},#{payment},#{payment_type},#{postage},#{status},now(),now(),now(),now(),now(),now());
   </insert>
+  
+  <resultMap type="Order" id="findOrderMap">
+  	<id property="id" column="oId"/>
+  	<result property="status" column="status"/>
+  		<association property="orderItem" javaType="OrderItem">
+  			<result property="order_no" column="oNo"/>
+  		</association>
+  		<association property="shipping" javaType="Shipping">
+  			<id property="id" column="sId"/>
+  			<result property="receiver_name" column="receiver_name"/>
+  		</association>
+  </resultMap>
+  
+  <select id="findOrder" parameterType="int" resultMap="findOrderMap">
+  	SELECT o.id AS oId,o.order_no AS oNo,o.shipping_id as sId,o.status,s.receiver_name FROM 
+    `order` AS o INNER JOIN shipping AS s ON o.shipping_id=s.id
+    WHERE o.user_id = #{id};
+  </select>
   
   </mapper>

@@ -26,10 +26,12 @@ public interface IIndexService {
 
 	List<Shipping> findShipping(Integer userId);
 
-	List<OrderItem> findOrder(int id);
+	List<OrderItem> findOrderItem(int id);
 
 	void addOrderItem(OrderItem orderItem);
 
 	void addOrder(Order order);
+
+	List<Order> findOrder(Integer userId);
 
 }

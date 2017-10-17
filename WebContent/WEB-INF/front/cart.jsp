@@ -146,7 +146,7 @@
 			</div>
 		 <div class="car_2_bottom">
 				<div class="car_con_1">
-					<td><input type="checkbox"name="selectIds"value="${CartItemVO.product.id }"></td>
+					<td><input id="productId" type="checkbox"name="selectIds"value="${CartItemVO.product.id }"></td>
 				</div>
 				<div class="car_con_2">
 					<img src="${CartItemVO.product.fullUrl}" style="width: 40px;height: 60px"/>

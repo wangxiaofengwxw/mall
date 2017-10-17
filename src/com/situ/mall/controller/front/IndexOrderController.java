@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,6 +28,7 @@ import com.situ.mall.pojo.User;
 import com.situ.mall.service.IIndexService;
 import com.situ.mall.vo.BuyCartVO;
 import com.situ.mall.vo.CartItemVO;
+import com.sun.org.apache.regexp.internal.recompile;
 
 @Controller
 @RequestMapping("/order")
@@ -73,13 +76,14 @@ public class IndexOrderController {
 	           item.setProduct(product);
 	       }
 
-	       OrderItem orderItem = new OrderItem();
+	    //把详情存到order_item   
+	    OrderItem orderItem = new OrderItem();
 		for (CartItemVO cartItemVO : items) {
 			orderItem.setUser(user);
 			orderItem.setOrder_no(num);
 			orderItem.setProduct_id(cartItemVO.getProduct().getId());
 			orderItem.setProduct_name(cartItemVO.getProduct().getName());
-			orderItem.setProduct_image(cartItemVO.getProduct().getSub_images());
+			orderItem.setProduct_image(cartItemVO.getProduct().getMain_image());
 			orderItem.setCurrent_unit_price(cartItemVO.getProduct().getPrice());
 			orderItem.setQuantity(cartItemVO.getAmount());
 			//BigDecimal e = a.multiply(b);// 乘
@@ -137,19 +141,39 @@ public class IndexOrderController {
 		return buyCartVO;
 	}
 
-	@RequestMapping("/toOrderList")
+	/*@RequestMapping("/toOrderList")
 	public ModelAndView toOrderList(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("isUser");
 		Integer userId = user.getId();
     	//取出order，发送到JSP页面
-   	 List<OrderItem>list = indexService.findOrder(userId);
+   	 List<OrderItem>list = indexService.findOrderItem(userId);
    	ModelAndView modelAndView = new ModelAndView();
    	modelAndView.addObject("list", list);
    	modelAndView.setViewName("order");
    	return modelAndView;
-
+	}*/
+	
+	@RequestMapping("/toOrderList")
+	public ModelAndView toOrder2List(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("isUser");
+		Integer userId = user.getId();
+    	//取出order，发送到JSP页面
+   	 List<OrderItem>itemList = indexService.findOrderItem(userId);
+   	 List<Order>orderList = indexService.findOrder(userId);
+   	ModelAndView modelAndView = new ModelAndView();
+   	modelAndView.addObject("itemList", itemList);
+   	modelAndView.addObject("orderList", orderList);
+   	modelAndView.setViewName("order");
+   	return modelAndView;
 	}
 	
-	
+	@RequestMapping("/getOrderInfo")
+	public ModelAndView getOrderInfo(long order_no) {
+		ModelAndView  modelAndView = new ModelAndView();
+		modelAndView.addObject("order_no", order_no);
+		modelAndView.setViewName("info");
+		return modelAndView;
+	}
 }

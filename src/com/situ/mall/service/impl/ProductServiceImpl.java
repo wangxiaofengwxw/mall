@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.situ.mall.common.ServerResponse;
 import com.situ.mall.dao.ProductDao;
 import com.situ.mall.pojo.Category;
 import com.situ.mall.pojo.Product;
@@ -23,9 +24,17 @@ public class ProductServiceImpl implements IProductService {
 	}
 
 	@Override
-	public boolean add(Product product) {
-		int rowCount = productDao.add(product);
-		return rowCount > 0 ? true : false;
+	public ServerResponse add(Product product) {
+		try {
+			int rowCount = productDao.add(product);
+			if (rowCount > 0) {
+				return ServerResponse.createSuccess("添加商品成功");
+			} else {
+				return ServerResponse.createError("添加商品失败");
+			}
+		} catch (Exception e) {
+			return ServerResponse.createError("添加商品失败");
+		}
 	}
 
 	@Override

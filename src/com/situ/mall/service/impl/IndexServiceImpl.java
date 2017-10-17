@@ -63,8 +63,8 @@ public class IndexServiceImpl implements IIndexService {
 	}
 
 	@Override
-	public List<OrderItem> findOrder(int id) {
-		return indexDao.findOrder(id);
+	public List<OrderItem> findOrderItem(int id) {
+		return indexDao.findOrderItem(id);
 	}
 
 	@Override
@@ -75,5 +75,10 @@ public class IndexServiceImpl implements IIndexService {
 	@Override
 	public void addOrder(Order order) {
 		indexDao.addOrder(order);
+	}
+
+	@Override
+	public List<Order> findOrder(Integer userId) {
+		return indexDao.findOrder(userId);
 	}
 }
